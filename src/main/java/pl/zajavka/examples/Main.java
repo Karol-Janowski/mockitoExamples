@@ -34,6 +34,6 @@ public class Main {
         ExampleBeanService exampleBeanService = new ExampleBeanServiceImpl();
         exampleBeanService.setInjectedBeanService(injectedBeanService);
 
-        System.out.println(exampleBeanService.sampleMethod());
+//        System.out.println(exampleBeanService.sampleMethod());
     }
 }
