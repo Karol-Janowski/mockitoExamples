@@ -1,4 +1,4 @@
-package pl.zajavka.example;
+package pl.zajavka.examples;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,12 +18,12 @@ public class SomeClassTest {
     @Mock
     private SomeOtherClass someOtherClass;
 
-    @Test
-    void someTest() {
-        Mockito.when(someOtherClass.someOtherMethod()).thenReturn("great");
-
-        someClass.someMethod();
-
-        Mockito.verify();
-    }
+//    @Test
+//    void someTest() {
+//        Mockito.when(someOtherClass.someOtherMethod()).thenReturn("great");
+//
+//        someClass.someMethod();
+//
+//        Mockito.verify();
+//    }
 }

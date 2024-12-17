@@ -29,5 +29,11 @@ public class Main {
         // wykonywanych podczas testu. Do tego posiada wczesniej zdefiniowane oczekiwania uzycia,
         // ktore w przypadku niespelnienia spowoduja niepowodzenie testu
         // Spy - jest czesciowym mockiem, do tego pozwala na wywolanie prawdziwych metod z obiektu
+
+        InjectedBeanServiceImpl injectedBeanService = new InjectedBeanServiceImpl();
+        ExampleBeanService exampleBeanService = new ExampleBeanServiceImpl();
+        exampleBeanService.setInjectedBeanService(injectedBeanService);
+
+        System.out.println(exampleBeanService.sampleMethod());
     }
 }

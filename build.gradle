@@ -19,24 +19,24 @@ ext {
 
 dependencies {
 
-    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.3'
+    // implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.3'
 
-    implementation "org.springframework:spring-core:$springVersion"
-    implementation "org.springframework:spring-beans:$springVersion"
-    implementation "org.springframework:spring-context:$springVersion"
-    implementation "org.springframework:spring-context-support:$springVersion"
-    implementation "org.springframework:spring-expression:$springVersion"
+//    implementation "org.springframework:spring-core:$springVersion"
+//    implementation "org.springframework:spring-beans:$springVersion"
+//    implementation "org.springframework:spring-context:$springVersion"
+//    implementation "org.springframework:spring-context-support:$springVersion"
+//    implementation "org.springframework:spring-expression:$springVersion"
 
-    compileOnly "org.projectlombok:lombok:$lombokVersion"
-    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+//    compileOnly "org.projectlombok:lombok:$lombokVersion"
+//    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 
     testImplementation "org.mockito:mockito-junit-jupiter:$mockitoVersion"
 
-    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
-    testAnnotationProcessor "org.projectlombok:$lombokVersion"
+//    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+//    testAnnotationProcessor "org.projectlombok:$lombokVersion"
 }
 
 test {
