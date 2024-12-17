@@ -1,4 +1,4 @@
-package pl.zajavka;
+package pl.zajavka.examples;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,5 +19,15 @@ public class Main {
         // OUT - object under test
         // MUT - Method under test
         // AUT - application under test
+
+        // Mock - atrap. zaslepka
+        // test Doubles = fake, dummy, stab, mock, spy - zastapienie obiektow w testach
+        // fake - jego implementacja istnieje, ale jest uproszczona w sposob nienadajacy sie do uzicya na produkcji
+        // dummy - rodzaj obiektu, ktory nie jest uzywany, a wylacznie istnieje na potrzeby poprawnego dzialania pewnych metod
+        // stub - dostarcza zaprogramowane odpowiedzi na wywolanie metod wykonywanych podczas testow
+        // mock - podobnie jak stub, dostarcza zaprogramowane odpowiedzi na wywolania metod
+        // wykonywanych podczas testu. Do tego posiada wczesniej zdefiniowane oczekiwania uzycia,
+        // ktore w przypadku niespelnienia spowoduja niepowodzenie testu
+        // Spy - jest czesciowym mockiem, do tego pozwala na wywolanie prawdziwych metod z obiektu
     }
 }

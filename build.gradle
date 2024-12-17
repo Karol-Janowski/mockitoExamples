@@ -12,7 +12,8 @@ repositories {
 ext {
     springVersion = '5.3.23'
     lombokVersion = '1.18.24'
-    junitVersion = '5.9.0'
+    junitVersion = '5.9.1'
+    mockitoVersion = '4.8.0'
 }
 
 
@@ -31,6 +32,8 @@ dependencies {
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+
+    testImplementation "org.mockito:mockito-junit-jupiter:$mockitoVersion"
 
     testCompileOnly "org.projectlombok:lombok:$lombokVersion"
     testAnnotationProcessor "org.projectlombok:$lombokVersion"
