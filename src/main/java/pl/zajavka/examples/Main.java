@@ -32,7 +32,7 @@ public class Main {
 
         InjectedBeanServiceImpl injectedBeanService = new InjectedBeanServiceImpl();
         ExampleBeanService exampleBeanService = new ExampleBeanServiceImpl();
-        exampleBeanService.setInjectedBeanService(injectedBeanService);
+        exampleBeanService.sampleMethod();
 
 //        System.out.println(exampleBeanService.sampleMethod());
     }

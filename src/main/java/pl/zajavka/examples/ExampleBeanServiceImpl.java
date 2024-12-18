@@ -1,16 +1,16 @@
 package pl.zajavka.examples;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ExampleBeanServiceImpl implements ExampleBeanService{
 
-    private InjectedBeanService injectedBeanService;
+    private List<String> sampleList = new ArrayList<>();
 
     @Override
-    public void setInjectedBeanService(InjectedBeanService injectedBeanService) {
-        this.injectedBeanService = injectedBeanService;
-    }
-
-    @Override
-    public String sampleMethod(String someValue) {
-        return injectedBeanService.someOtherMethod() + injectedBeanService.anotherSampleMethod("some string value");
+    public void sampleMethod(String... valuesToAdd) {
+        for (String value : valuesToAdd) {
+            sampleList.add(value);
+        }
     }
 }

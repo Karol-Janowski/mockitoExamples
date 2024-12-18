@@ -1,77 +1,54 @@
 package pl.zajavka.examples;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.stream.Stream;
+import java.util.LinkedList;
+import java.util.List;
 
-//@ExtendWith(MockitoExtension.class)
+@ExtendWith(MockitoExtension.class)
 class ExampleBeanServiceImplTest {
 
-    //    @InjectMocks
+    @InjectMocks
     private ExampleBeanServiceImpl exampleBeanService;
 
-    //    @Mock
-    private InjectedBeanService injectedBeanService;
+    @Spy
+    private List<String> sampleList = new LinkedList<>();
 
-    @BeforeEach
-    void init() {
-        this.injectedBeanService = Mockito.mock(InjectedBeanService.class);
-        this.exampleBeanService = new ExampleBeanServiceImpl();
-        this.exampleBeanService.setInjectedBeanService(injectedBeanService);
-    }
-
-
-    //    @ParameterizedTest
-//    @MethodSource
-    void sampleMethod(String val1, String val2) {
-        // given
-        // zapis1
-//        Mockito.when(injectedBeanService.anotherSampleMethod(ArgumentMatchers.anyString()))
-//                .thenThrow(new RuntimeException("my exception"));
-        // zapis2
-        Mockito
-                .doReturn("some value")
-                .when(injectedBeanService)
-                .anotherSampleMethod(ArgumentMatchers.anyString());
+    @Test
+    void thatSampleMethod_whenToValuesAdd() {
+        //given
+        String testValue = "testValue";
 
         //when
-//        String result1 = exampleBeanService.sampleMethod("val1");
-//        String result2 = exampleBeanService.sampleMethod("val2");
-//        String result3 = exampleBeanService.sampleMethod("val3");
-//        String result4 = exampleBeanService.sampleMethod("val4");
+        exampleBeanService.sampleMethod(testValue);
 
-//        Assertions.assertThrows(RuntimeException.class, () -> exampleBeanService.sampleMethod("some value"));
-
-        String result = exampleBeanService.sampleMethod("some value");
-
-        Assertions.assertEquals("some value", result);
         //then
-//        assertEquals("my value", result1);
+        Mockito.verify(sampleList).add(Mockito.anyString());
+        Mockito.verify(sampleList).add(testValue);
+        Assertions.assertEquals(1, sampleList.size());
     }
 
-    static Stream<Arguments> sampleMethod() {
-        return Stream.of(
-                Arguments.of("val1", "val2"),
-                Arguments.of("val3", "val4"),
-                Arguments.of("val5", "val6")
-        );
+    @Test
+    void thatSampleMethod_whenTwoValuesToAdd() {
+        //given
+        String testValue1 = "testValue1";
+        String testValue2 = "testValue2";
+        Mockito.when(sampleList.size()).thenReturn(79678);
+
+        //when
+        exampleBeanService.sampleMethod(testValue1, testValue2);
+
+        //then
+        Mockito.verify(sampleList, Mockito.times(2)).add(Mockito.anyString());
+        Mockito.verify(sampleList).add(testValue1);
+        Mockito.verify(sampleList).add(testValue2);
+        Assertions.assertEquals(2, sampleList.size());
     }
 
-//    static class StubInjectedBeanService implements InjectedBeanService {
-//
-//        @Override
-//        public boolean anotherSampleMethod() {
-//            return true;
-//        }
-//    }
 }

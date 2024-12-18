@@ -12,7 +12,7 @@ repositories {
 ext {
     springVersion = '5.3.23'
     lombokVersion = '1.18.24'
-    junitVersion = '5.8.3'
+    junitVersion = '5.9.1'
     mockitoVersion = '4.8.0'
 }
 
