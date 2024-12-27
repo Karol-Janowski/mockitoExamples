@@ -86,8 +86,8 @@ public class UserManagementServiceTest {
         var user2 = someUser().withEmail(duplicatedEmail);
         when(userManagementRepository.findByEmail(duplicatedEmail))
                 .thenReturn(Optional.empty())
-                .thenReturn(new RuntimeException(
-                        String.format("User with email: [%s] is already created", user1, getEmail())));
+                .thenThrow(new RuntimeException(
+                        String.format("User with email: [%s] is already created", user1.getEmail())));
 
         //when, then
         userManagementService.create(user1);
@@ -146,7 +146,7 @@ public class UserManagementServiceTest {
         when(userManagementRepository.findByEmail(email2))
                 .thenReturn(Optional.empty())
                 .thenReturn(Optional.of(user2));
-        when(userManagementRepository(findByEmail(user3)))
+        when(userManagementRepository.findByEmail(email3))
                 .thenReturn(Optional.empty())
                 .thenReturn(Optional.of(user3));
         when(userManagementRepository.findByEmail(emailNew))
@@ -187,7 +187,7 @@ public class UserManagementServiceTest {
         //when, then
         Throwable exception = Assertions.assertThrows(RuntimeException.class,
                 () -> userManagementService.update(user1.getEmail(), user1.withEmail(newEmail)));
-        Assertions.assertEquals(String.format("User with email: [%s] doesnt exist", user1.getEmail()), exception.getMessage());
+        Assertions.assertEquals(String.format("User with email: [%s] doesn't exist", user1.getEmail()), exception.getMessage());
 
     }
 
